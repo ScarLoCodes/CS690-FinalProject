@@ -9,24 +9,39 @@ namespace WellnessTracker
         public Metric(MetricType type) { Type = type; }
         public enum MetricType
         {
-            Nutrution, Fitness, Hydration
+            Nutrition, Fitness, Hydration
         }
 
         public MetricType Type { get; set; }
 
-        public string Unit()
+        public override string ToString()
         {
-            switch(Type)
-                {
-                case MetricType.Nutrution:
+            switch (Type)
+            {
+                case MetricType.Nutrition:
                     return "cal";
                 case MetricType.Fitness:
                     return "min";
                 case MetricType.Hydration:
                     return "ml";
                 default:
-                    return "";
-            }   
+                    return "???";
+            }
+        }
+
+        public static Metric Nurtrition()
+        {
+            return new Metric(MetricType.Nutrition);
+        }
+
+        public static Metric Fitness()
+        {
+            return new Metric(MetricType.Fitness);
+        }
+
+        public static Metric Hydration()
+        {
+            return new Metric(MetricType.Hydration);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace WellnessTracker
 
         public override string ToString()
         {
-            return $"Goal: {GoalValue}{Metric.Unit()} by {Deadline.ToShortDateString()} (Current: {CurrentValue}/{GoalValue}{Metric.Unit()})";
+            return $"- {Deadline.ToShortDateString()} (Current: {CurrentValue}/{GoalValue}{Metric})";
         }
     }
 }

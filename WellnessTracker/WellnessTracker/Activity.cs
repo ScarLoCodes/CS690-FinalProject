@@ -25,7 +25,7 @@ namespace WellnessTracker
 
         public override string ToString()
         {
-            return $"{Name}: {Value}{Metric.Unit()} at {Time}";
+            return $"{Name}: {Value}{Metric} at {Time.ToShortDateString()}";
         }
     }
 }
