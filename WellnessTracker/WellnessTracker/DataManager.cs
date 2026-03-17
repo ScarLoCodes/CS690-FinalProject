@@ -4,7 +4,12 @@ using System.Text;
 
 namespace WellnessTracker
 {
-    internal class DataManager
+    public class DataManager
     {
+        public  Dictionary<string, Activity> Activities { get; set; } = new Dictionary<string, Activity>();
+        public List<Goal> Goals { get; set; } = new List<Goal>();
+
+
+
     }
 }

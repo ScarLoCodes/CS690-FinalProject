@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WellnessTracker
 {
-    internal class Goal
+    public class Goal
     {
             public Goal(Metric metric, int goalValue, DateTime deadline) 
             {
@@ -23,6 +23,8 @@ namespace WellnessTracker
         public int CurrentValue { get; set; }
 
         public DateTime Deadline { get; set; }
+
+        public List<string> ActivityIDs { get; set; } = new List<string>();
 
         public override string ToString()
         {

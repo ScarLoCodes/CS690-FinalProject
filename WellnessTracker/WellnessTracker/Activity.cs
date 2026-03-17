@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WellnessTracker
 {
-    internal class Activity
+    public class Activity
     {
         public Activity(string name, int value, Metric metric) 
         {

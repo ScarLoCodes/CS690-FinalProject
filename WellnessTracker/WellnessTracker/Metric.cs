@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WellnessTracker
 {
-    internal class Metric
+    public class Metric
     {
         public Metric(MetricType type) { Type = type; }
         public enum MetricType
