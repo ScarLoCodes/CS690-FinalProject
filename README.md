@@ -7,7 +7,14 @@ You can enter a goal you'd like to set, an end date for the goal, and begin logg
 
  ## Deployment Guide
 
- To install the wellness tracker, first clone or download this repository to your machine.: https://github.com/ScarLoCodes/CS690-FinalProject/
+ To install the wellness tracker, navigate to https://github.com/ScarLoCodes/CS690-FinalProject/releases/tag/Stable
+
+ Next, download WellnessTracker.zip
+ 
+
+ Alternatively, you can clone the repo:
+ 
+ first clone or download this repository to your machine.: https://github.com/ScarLoCodes/CS690-FinalProject/
 
  Next, navigate to the release folder of the project: WellnessTracker/WellnessTracker/bin/Release/net10.0
 
