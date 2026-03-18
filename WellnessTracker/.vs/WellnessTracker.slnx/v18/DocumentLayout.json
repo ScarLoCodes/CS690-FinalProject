@@ -46,8 +46,7 @@
               "RelativeToolTip": "WellnessTracker\\Goal.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T02:23:11.335Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T02:23:11.335Z"
             },
             {
               "$type": "Document",
@@ -59,8 +58,7 @@
               "RelativeToolTip": "WellnessTracker\\Activity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T01:34:13.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-18T01:34:13.398Z"
             },
             {
               "$type": "Document",
@@ -72,8 +70,7 @@
               "RelativeToolTip": "WellnessTracker\\FileExporter.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAqwCIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:13:01.071Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T00:13:01.071Z"
             },
             {
               "$type": "Document",
@@ -85,8 +82,7 @@
               "RelativeToolTip": "WellnessTracker\\DataManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:12:50.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T00:12:50.972Z"
             },
             {
               "$type": "Document",
@@ -96,7 +92,7 @@
               "RelativeDocumentMoniker": "WellnessTracker\\UIManager.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\UIManager.cs",
               "RelativeToolTip": "WellnessTracker\\UIManager.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAASwE0BAABcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0BAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T00:12:33.864Z",
               "EditorCaption": ""
@@ -111,8 +107,7 @@
               "RelativeToolTip": "WellnessTracker\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:11:22.949Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T00:11:22.949Z"
             }
           ]
         }
