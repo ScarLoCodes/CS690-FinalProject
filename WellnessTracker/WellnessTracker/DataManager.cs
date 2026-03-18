@@ -20,10 +20,21 @@ namespace WellnessTracker
 
         public static bool DeleteActivity(string id)
         {
-            return Activities.Remove(id);
+            var query =
+                from goal in Goals
+                where goal.Value.ActivityIDs.Contains(id)
+                select goal;
+
+            foreach (var goal in query)
+            {
+                goal.Value.CurrentValue -= Activities[id].Value;
+                goal.Value.ActivityIDs.Remove(id);
+            }
+
+                return Activities.Remove(id);
         }
 
-        public void UpdateProgress(string goalId, string activityId)
+        public static void UpdateProgress(string goalId, string activityId)
         {
             var goal = Goals.ContainsKey(goalId) ? Goals[goalId] : null;
             var activity = Activities.ContainsKey(activityId) ? Activities[activityId] : null;
@@ -45,6 +56,15 @@ namespace WellnessTracker
             var goal = Goals.ContainsKey(id) ? Goals[id] : null;
             if (goal != null)
             {
+                foreach (var activityId in goal.ActivityIDs)
+                {
+                    var activity = Activities.ContainsKey(activityId) ? Activities[activityId] : null;
+                    if (activity != null)
+                    {
+                        goal.CurrentValue -= activity.Value;
+                        Activities.Remove(activityId);
+                    }
+                }
                 return Goals.Remove(id);
             }
             return false;
@@ -68,6 +88,13 @@ namespace WellnessTracker
         public static bool DeleteReminder(string id)
         {
             return Reminders.Remove(id);
+        }
+
+        public static void ClearData()
+        {
+            Activities.Clear();
+            Goals.Clear();
+            Reminders.Clear();
         }
 
         public static string PrintGoals()
