@@ -12,3 +12,5 @@ You can enter a goal you'd like to set, an end date for the goal, and begin logg
  Next, navigate to the release folder of the project: WellnessTracker/WellnessTracker/bin/Release/net10.0
 
  This folder contains the latest stable releaase of the wellness tracker. To run the program, click on or run WellnessTracker.exe
+
+ For instructions on how to use the Wellness Tracker, visit the [User Documentation](https://github.com/ScarLoCodes/CS690-FinalProject/wiki/User-Documentation) in the wiki.
