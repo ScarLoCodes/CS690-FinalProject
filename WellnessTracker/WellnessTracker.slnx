@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="WellnessTracker/WellnessTracker.csproj" />
+  <Project Path="WellnessTrackerTest/WellnessTrackerTest.csproj" Id="83173b33-4e56-4363-b9b1-744751e64a1e" />
 </Solution>

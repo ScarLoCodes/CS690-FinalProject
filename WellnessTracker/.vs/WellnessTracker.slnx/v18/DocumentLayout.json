@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\fileexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\fileexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83173B33-4E56-4363-B9B1-744751E64A1E}|WellnessTrackerTest\\WellnessTrackerTest.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstrackertest\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83173B33-4E56-4363-B9B1-744751E64A1E}|WellnessTrackerTest\\WellnessTrackerTest.csproj|solutionrelative:wellnesstrackertest\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\activity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\fileexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\fileexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,6 +37,10 @@
           "SelectedChildIndex": 4,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Goal.cs",
@@ -44,55 +48,59 @@
               "RelativeDocumentMoniker": "WellnessTracker\\Goal.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\Goal.cs",
               "RelativeToolTip": "WellnessTracker\\Goal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T02:23:11.335Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Activity.cs",
-              "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\Activity.cs",
-              "RelativeDocumentMoniker": "WellnessTracker\\Activity.cs",
-              "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\Activity.cs",
-              "RelativeToolTip": "WellnessTracker\\Activity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T01:34:13.398Z"
+              "WhenOpened": "2026-04-01T22:26:38.037Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Test1.cs",
+              "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTrackerTest\\Test1.cs",
+              "RelativeDocumentMoniker": "WellnessTrackerTest\\Test1.cs",
+              "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTrackerTest\\Test1.cs",
+              "RelativeToolTip": "WellnessTrackerTest\\Test1.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAiwJYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T21:55:12.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "FileExporter.cs",
               "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\FileExporter.cs",
               "RelativeDocumentMoniker": "WellnessTracker\\FileExporter.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\FileExporter.cs",
               "RelativeToolTip": "WellnessTracker\\FileExporter.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAqwCIAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:13:01.071Z"
+              "WhenOpened": "2026-03-17T00:13:01.071Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "DataManager.cs",
               "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\DataManager.cs",
               "RelativeDocumentMoniker": "WellnessTracker\\DataManager.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\DataManager.cs",
               "RelativeToolTip": "WellnessTracker\\DataManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADUAAAAAAAAAAAAowEYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:12:50.972Z"
+              "WhenOpened": "2026-03-17T00:12:50.972Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\UIManager.cs",
               "RelativeDocumentMoniker": "WellnessTracker\\UIManager.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\UIManager.cs",
               "RelativeToolTip": "WellnessTracker\\UIManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0BAABcAAAAAAAAAA==",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAUwE0BAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T00:12:33.864Z",
               "EditorCaption": ""
@@ -107,7 +115,8 @@
               "RelativeToolTip": "WellnessTracker\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:11:22.949Z"
+              "WhenOpened": "2026-03-17T00:11:22.949Z",
+              "EditorCaption": ""
             }
           ]
         }
