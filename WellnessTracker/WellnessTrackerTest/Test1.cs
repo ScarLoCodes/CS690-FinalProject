@@ -1,4 +1,6 @@
-﻿namespace WellnessTrackerTest
+﻿using WellnessTracker;
+
+namespace WellnessTrackerTest
 {
     [TestClass]
     public sealed class Test1
@@ -8,7 +10,7 @@
         public void Test_AddGoal()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now, Goal.RecurringType.None);
 
             Assert.HasCount(1, WellnessTracker.DataManager.Goals);
         }
@@ -17,7 +19,7 @@
         public void Test_UpdateGoal()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now, Goal.RecurringType.Daily);
             var id = WellnessTracker.DataManager.Goals.Keys.First();
             WellnessTracker.DataManager.UpdateGoal(id,  350, DateTime.Now, false);
 
@@ -28,7 +30,7 @@
         public void Test_DeleteGoal()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now, Goal.RecurringType.Weekly);
             var id = WellnessTracker.DataManager.Goals.Keys.First();
             WellnessTracker.DataManager.DeleteGoal(id);
 
@@ -39,7 +41,7 @@
         public void Test_AddActivity()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now, Goal.RecurringType.None);
             var id = WellnessTracker.DataManager.Goals.Keys.First();
 
             WellnessTracker.DataManager.AddActivity("Water", 50, WellnessTracker.Metric.Hydration());
@@ -52,7 +54,7 @@
         {
             WellnessTracker.DataManager.Goals.Clear();
             WellnessTracker.DataManager.Activities.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Hydration(), 300, DateTime.Now, Goal.RecurringType.Daily);
             var id = WellnessTracker.DataManager.Goals.Keys.First();
 
             WellnessTracker.DataManager.AddActivity("Water", 50, WellnessTracker.Metric.Hydration());
@@ -87,7 +89,7 @@
         public void Test_PrintGoals()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now, Goal.RecurringType.Daily);
 
             Assert.IsNotNull(WellnessTracker.DataManager.PrintGoals());
         }
@@ -109,7 +111,7 @@
         [TestMethod]
         public void Test_ClearData()
         {
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now, Goal.RecurringType.Daily);
             WellnessTracker.DataManager.AddActivity("Water", 50, WellnessTracker.Metric.Hydration());
             WellnessTracker.DataManager.AddReminder("Test");
             WellnessTracker.DataManager.ClearData();
@@ -124,7 +126,7 @@
         public void TestUpdateAdd()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now, Goal.RecurringType.Daily);
             var id = WellnessTracker.DataManager.Goals.Keys.First();
             WellnessTracker.DataManager.AddActivity("Running", 30, WellnessTracker.Metric.Fitness());
             var activityId = WellnessTracker.DataManager.Activities.Keys.First();
@@ -139,7 +141,7 @@
         public void TestUpdateDelete()
         {
             WellnessTracker.DataManager.Goals.Clear();
-            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now);
+            WellnessTracker.DataManager.AddGoal(WellnessTracker.Metric.Fitness(), 260, DateTime.Now, Goal.RecurringType.Daily);
             var id = WellnessTracker.DataManager.Goals.Keys.First();
             WellnessTracker.DataManager.AddActivity("Running", 30, WellnessTracker.Metric.Fitness());
             var activityId = WellnessTracker.DataManager.Activities.Keys.First();

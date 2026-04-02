@@ -45,9 +45,9 @@ namespace WellnessTracker
             }
         }
 
-        public static void AddGoal(Metric metric, int goalValue, DateTime deadline)
+        public static void AddGoal(Metric metric, int goalValue, DateTime deadline, Goal.RecurringType type)
         {
-            Goal goal = new Goal(metric, goalValue, deadline);
+            Goal goal = new Goal(metric, goalValue, deadline, type);
             Goals.Add(goal.ID, goal);
         }
     
@@ -78,6 +78,48 @@ namespace WellnessTracker
                 goal.GoalValue = goalValue;
                 goal.Deadline = deadline;
             }
+        }
+
+        public static void UpdateGoalDeadline()
+        {
+
+            //Remove expired non-recurring goals
+            var expiredGoals =
+                from goal in Goals
+                where goal.Value.Recurring == Goal.RecurringType.None && goal.Value.Deadline <= DateTime.Now
+                select goal;
+            expiredGoals.ToList().ForEach(g => DeleteGoal(g.Value.ID));
+
+            //Update recurring goals and collect expired activities
+            var expiredActivities = new List<string>();
+            foreach (var goal in Goals)
+            {
+                if(goal.Value.Deadline <= DateTime.Now)
+                {
+                    goal.Value.PeriodDeadlineUpdate();
+
+                    expiredActivities.AddRange(goal.Value.ActivityIDs);
+                }
+            }
+
+            //clean up activities
+            foreach (var activityId in expiredActivities)
+            {
+                DeleteActivity(activityId);
+            }
+        }
+
+        public static List<Goal> CheckDeadlines()
+        {
+            List<Goal> list = new List<Goal>();
+            foreach (var goal in Goals)
+            {
+                if (goal.Value.Deadline <= DateTime.Now)
+                {
+                    list.Add(goal.Value);
+                }
+            }
+            return list;
         }
 
         public static void AddReminder(string message)

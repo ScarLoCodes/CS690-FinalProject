@@ -23,6 +23,25 @@ namespace WellnessTracker
                     }
                     
                 });
+
+            //Check if goals have completed their deadline and prompt the update process.
+            var NeedsUpdates = DataManager.CheckDeadlines();
+            if (NeedsUpdates.Count > 0)
+            {
+                AnsiConsole.MarkupLine("[red]The following goals have reached their deadline![/]");
+                foreach (var goal in NeedsUpdates)
+                {
+                    AnsiConsole.MarkupLine($"  {goal.ToString()}");
+                }
+                var confirmed = AnsiConsole.Confirm("Print report for moving to next interation? All related expired goals and activities will be deleted.");
+
+                if (confirmed)
+                {
+                    FileExporter.ExportReport($"report_{DateTime.Now.ToString("yyyyMMdd_hhmmtt")}.txt");
+                }
+
+                DataManager.UpdateGoalDeadline();
+            }
         }
 
         public static void DisplayMainMenu()
@@ -140,7 +159,24 @@ namespace WellnessTracker
             }
             var goalValue = AnsiConsole.Ask<int>("Enter your target value:");
             var deadline = AnsiConsole.Ask<DateTime>("Enter the deadline for this goal (MM/DD/YYYY):");
-            DataManager.AddGoal(metric, goalValue, deadline);
+            var recurring = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                .Title("Select a recurring type for this goal:")
+                .AddChoices(new[] {
+                "None",
+                "Daily",
+                "Weekly"
+            }));
+            
+            var type = Goal.RecurringType.None;
+            if (recurring == "Daily")
+            {
+                type = Goal.RecurringType.Daily;
+            } else if (recurring == "Weekly")
+            {
+                type = Goal.RecurringType.Weekly;
+            }
+
+            DataManager.AddGoal(metric, goalValue, deadline,type);
         }
 
         public static void UpdateGoal()

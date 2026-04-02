@@ -1,98 +1,38 @@
 {
   "Activities": {
-    "4c0f7ba2-d291-4999-8af9-29e403450994": {
-      "ID": "4c0f7ba2-d291-4999-8af9-29e403450994",
-      "Name": "Hiking with Fred",
+    "56873929-beab-46a5-94d4-5fbc64581b87": {
+      "ID": "56873929-beab-46a5-94d4-5fbc64581b87",
+      "Name": "Running",
       "Metric": {
         "Type": 1
       },
-      "Value": 72,
-      "Time": "2026-03-17T22:38:03.3098059-04:00"
-    },
-    "36e66a0c-5cbd-4c8a-b490-8a8f215ff23f": {
-      "ID": "36e66a0c-5cbd-4c8a-b490-8a8f215ff23f",
-      "Name": "Stretches",
-      "Metric": {
-        "Type": 1
-      },
-      "Value": 15,
-      "Time": "2026-03-17T22:38:14.9074821-04:00"
-    },
-    "534a23eb-7545-43a5-b60c-e760aa358e4f": {
-      "ID": "534a23eb-7545-43a5-b60c-e760aa358e4f",
-      "Name": "Eggs, Toast, and Grits",
-      "Metric": {
-        "Type": 0
-      },
-      "Value": 950,
-      "Time": "2026-03-17T22:38:39.0747559-04:00"
-    },
-    "5b948ac1-b000-4eec-9d93-9528aa28e09d": {
-      "ID": "5b948ac1-b000-4eec-9d93-9528aa28e09d",
-      "Name": "Salad for Lunch",
-      "Metric": {
-        "Type": 0
-      },
-      "Value": 300,
-      "Time": "2026-03-17T22:38:55.5032692-04:00"
-    },
-    "51763972-7168-4e97-92c5-1cfede9e0d38": {
-      "ID": "51763972-7168-4e97-92c5-1cfede9e0d38",
-      "Name": "Water at the gym",
-      "Metric": {
-        "Type": 2
-      },
-      "Value": 350,
-      "Time": "2026-03-17T22:39:27.364557-04:00"
-    },
-    "24680808-b23f-4db0-9e54-9f8d787d333a": {
-      "ID": "24680808-b23f-4db0-9e54-9f8d787d333a",
-      "Name": "Popcorn at the movies",
-      "Metric": {
-        "Type": 0
-      },
-      "Value": 650,
-      "Time": "2026-03-17T22:39:46.5240849-04:00"
+      "Value": 30,
+      "Time": "2026-04-02T13:50:56.7649196-04:00"
     }
   },
   "Goals": {
-    "97e978ef-5d2e-4a7a-94a2-6453d300df80": {
-      "ID": "97e978ef-5d2e-4a7a-94a2-6453d300df80",
-      "Metric": {
-        "Type": 1
-      },
-      "GoalValue": 360,
-      "CurrentValue": 87,
-      "Deadline": "2026-03-21T00:00:00",
-      "ActivityIDs": [
-        "4c0f7ba2-d291-4999-8af9-29e403450994",
-        "36e66a0c-5cbd-4c8a-b490-8a8f215ff23f"
-      ]
-    },
-    "2bd219aa-d4f8-4104-8cbd-ebf335170861": {
-      "ID": "2bd219aa-d4f8-4104-8cbd-ebf335170861",
+    "0dd6fd51-c922-4b29-9ce5-e38330a8cfc7": {
+      "ID": "0dd6fd51-c922-4b29-9ce5-e38330a8cfc7",
       "Metric": {
         "Type": 0
       },
-      "GoalValue": 1650,
-      "CurrentValue": 1900,
-      "Deadline": "2026-03-19T00:00:00",
-      "ActivityIDs": [
-        "534a23eb-7545-43a5-b60c-e760aa358e4f",
-        "5b948ac1-b000-4eec-9d93-9528aa28e09d",
-        "24680808-b23f-4db0-9e54-9f8d787d333a"
-      ]
+      "Recurring": 1,
+      "GoalValue": 1600,
+      "CurrentValue": 0,
+      "Deadline": "2026-04-03T00:00:00-04:00",
+      "ActivityIDs": []
     },
-    "d53e997c-ed17-47f0-adbb-53d71d44f86b": {
-      "ID": "d53e997c-ed17-47f0-adbb-53d71d44f86b",
+    "779ee5f1-8f69-4170-8daa-43b9f88edf11": {
+      "ID": "779ee5f1-8f69-4170-8daa-43b9f88edf11",
       "Metric": {
-        "Type": 2
+        "Type": 1
       },
-      "GoalValue": 900,
-      "CurrentValue": 350,
-      "Deadline": "2026-03-21T00:00:00",
+      "Recurring": 1,
+      "GoalValue": 300,
+      "CurrentValue": 30,
+      "Deadline": "2026-04-02T00:00:00",
       "ActivityIDs": [
-        "51763972-7168-4e97-92c5-1cfede9e0d38"
+        "56873929-beab-46a5-94d4-5fbc64581b87"
       ]
     }
   },
