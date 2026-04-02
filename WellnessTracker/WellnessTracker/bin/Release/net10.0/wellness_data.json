@@ -1,50 +1,5 @@
 {
-  "Activities": {
-    "5b769dc1-c2aa-4540-893a-51e992e582ff": {
-      "ID": "5b769dc1-c2aa-4540-893a-51e992e582ff",
-      "Name": "Ate a cookie",
-      "Metric": {
-        "Type": 0
-      },
-      "Value": 160,
-      "Time": "2026-03-18T12:43:32.0873842-04:00"
-    },
-    "a551ef5e-5e3d-478e-a6df-a0cb1d160bcd": {
-      "ID": "a551ef5e-5e3d-478e-a6df-a0cb1d160bcd",
-      "Name": "Lemon Soda",
-      "Metric": {
-        "Type": 0
-      },
-      "Value": 240,
-      "Time": "2026-03-18T12:44:06.2779209-04:00"
-    }
-  },
-  "Goals": {
-    "c5ca183c-a8c1-437a-b97b-6bfebe15023e": {
-      "ID": "c5ca183c-a8c1-437a-b97b-6bfebe15023e",
-      "Metric": {
-        "Type": 0
-      },
-      "GoalValue": 1850,
-      "CurrentValue": 400,
-      "Deadline": "2026-05-26T00:00:00",
-      "ActivityIDs": [
-        "5b769dc1-c2aa-4540-893a-51e992e582ff",
-        "a551ef5e-5e3d-478e-a6df-a0cb1d160bcd"
-      ]
-    },
-    "ef37487e-83b3-457b-a992-2b03185e7f00": {
-      "ID": "ef37487e-83b3-457b-a992-2b03185e7f00",
-      "Metric": {
-        "Type": 1
-      },
-      "GoalValue": 90,
-      "CurrentValue": 0,
-      "Deadline": "2026-04-01T00:00:00",
-      "ActivityIDs": []
-    }
-  },
-  "Reminders": {
-    "9538c443-c371-476c-9776-b12b639f6548": "Don't forget to log Yoga from Tuesday!"
-  }
+  "Activities": {},
+  "Goals": {},
+  "Reminders": {}
 }
