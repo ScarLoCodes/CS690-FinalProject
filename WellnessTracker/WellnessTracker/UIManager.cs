@@ -17,11 +17,12 @@ namespace WellnessTracker
                     if (FileManager.InitData())
                     {
                         AnsiConsole.MarkupLine("[green]Data loaded successfully![/]");
-                    } else
+                    }
+                    else
                     {
                         AnsiConsole.MarkupLine("[green]No save data found. A new save file was created[/]");
                     }
-                    
+
                 });
 
             //Check if goals have completed their deadline and prompt the update process.
@@ -66,6 +67,7 @@ namespace WellnessTracker
                             "Log Activity",
                             "Manage Goals",
                             "Manage Reminders",
+                            "View All Progress",
                             "Print Report",
                             "Manage Data",
                             "Exit"
@@ -81,6 +83,9 @@ namespace WellnessTracker
                         break;
                     case "Manage Reminders":
                         DisplayReminderMenu();
+                        break;
+                    case "View All Progress":
+                        DisplayProgress();
                         break;
                     case "Print Report":
                         DisplayReportMenu();
@@ -166,17 +171,18 @@ namespace WellnessTracker
                 "Daily",
                 "Weekly"
             }));
-            
+
             var type = Goal.RecurringType.None;
             if (recurring == "Daily")
             {
                 type = Goal.RecurringType.Daily;
-            } else if (recurring == "Weekly")
+            }
+            else if (recurring == "Weekly")
             {
                 type = Goal.RecurringType.Weekly;
             }
 
-            DataManager.AddGoal(metric, goalValue, deadline,type);
+            DataManager.AddGoal(metric, goalValue, deadline, type);
         }
 
         public static void UpdateGoal()
@@ -377,6 +383,23 @@ namespace WellnessTracker
             foreach (var item in activities)
             {
                 AnsiConsole.MarkupLine($" - {item.ToString()}");
+            }
+        }
+
+        public static void DisplayProgress()
+        {
+            AnsiConsole.MarkupLine("[LightGreen]Progress[/]");
+            foreach (var goal in DataManager.Goals.Values)
+            {
+                AnsiConsole.MarkupLine($"   {goal.ToString()}");
+                if (goal.ActivityIDs.Count > 0)
+                {
+                    foreach (var activityId in goal.ActivityIDs)
+                    {
+                        var activity = DataManager.Activities[activityId];
+                        AnsiConsole.MarkupLine($"    - {activity.ToString()}");
+                    }
+                }
             }
         }
     }

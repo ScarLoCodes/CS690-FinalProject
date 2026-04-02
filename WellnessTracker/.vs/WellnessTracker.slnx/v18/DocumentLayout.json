@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|solutionrelative:wellnesstracker\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F924B95-C254-65E0-FA91-DF9C0A93109C}|WellnessTracker\\WellnessTracker.csproj|c:\\users\\danny\\source\\repos\\scarlocodes\\cs690-finalproject\\wellnesstracker\\wellnesstracker\\datamanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -62,13 +62,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FileManager.cs",
               "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\FileManager.cs",
               "RelativeDocumentMoniker": "WellnessTracker\\FileManager.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\FileManager.cs",
               "RelativeToolTip": "WellnessTracker\\FileManager.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAUwFwAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFwAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T00:13:01.071Z",
               "EditorCaption": ""
@@ -83,18 +83,17 @@
               "RelativeToolTip": "WellnessTracker\\DataManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T00:12:50.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T00:12:50.972Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\UIManager.cs",
               "RelativeDocumentMoniker": "WellnessTracker\\UIManager.cs",
               "ToolTip": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTracker\\UIManager.cs",
               "RelativeToolTip": "WellnessTracker\\UIManager.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA3wCcAAABNAAAAAAAAAA==",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAywIYBAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-17T00:12:33.864Z",
               "EditorCaption": ""
