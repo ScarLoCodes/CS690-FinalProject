@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WellnessTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f519723d419a1d10c172a00e5b7939e0a243ec2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfcd12906bbc791067b5f09dbbf35551ef78c86d")]
 [assembly: System.Reflection.AssemblyProductAttribute("WellnessTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WellnessTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

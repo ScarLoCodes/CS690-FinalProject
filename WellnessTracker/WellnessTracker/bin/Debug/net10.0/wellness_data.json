@@ -1,13 +1,31 @@
 {
   "Activities": {
-    "56873929-beab-46a5-94d4-5fbc64581b87": {
-      "ID": "56873929-beab-46a5-94d4-5fbc64581b87",
-      "Name": "Running",
+    "a044e5bd-97da-4b0d-a5f3-bbc6fad3521d": {
+      "ID": "a044e5bd-97da-4b0d-a5f3-bbc6fad3521d",
+      "Name": "Lunch",
+      "Metric": {
+        "Type": 0
+      },
+      "Value": 350,
+      "Time": "2026-04-02T14:14:05.697116-04:00"
+    },
+    "1ed09bbe-056f-45a0-a374-c5d1d019ec31": {
+      "ID": "1ed09bbe-056f-45a0-a374-c5d1d019ec31",
+      "Name": "Morning Walk",
       "Metric": {
         "Type": 1
       },
-      "Value": 30,
-      "Time": "2026-04-02T13:50:56.7649196-04:00"
+      "Value": 35,
+      "Time": "2026-04-02T14:14:26.3356006-04:00"
+    },
+    "769806d9-aea9-4801-ba82-f971a75ff3d8": {
+      "ID": "769806d9-aea9-4801-ba82-f971a75ff3d8",
+      "Name": "Snack",
+      "Metric": {
+        "Type": 0
+      },
+      "Value": 250,
+      "Time": "2026-04-02T14:14:35.9954405-04:00"
     }
   },
   "Goals": {
@@ -18,9 +36,12 @@
       },
       "Recurring": 1,
       "GoalValue": 1600,
-      "CurrentValue": 0,
+      "CurrentValue": 600,
       "Deadline": "2026-04-03T00:00:00-04:00",
-      "ActivityIDs": []
+      "ActivityIDs": [
+        "a044e5bd-97da-4b0d-a5f3-bbc6fad3521d",
+        "769806d9-aea9-4801-ba82-f971a75ff3d8"
+      ]
     },
     "779ee5f1-8f69-4170-8daa-43b9f88edf11": {
       "ID": "779ee5f1-8f69-4170-8daa-43b9f88edf11",
@@ -29,10 +50,10 @@
       },
       "Recurring": 1,
       "GoalValue": 300,
-      "CurrentValue": 30,
-      "Deadline": "2026-04-02T00:00:00",
+      "CurrentValue": 35,
+      "Deadline": "2026-04-03T00:00:00-04:00",
       "ActivityIDs": [
-        "56873929-beab-46a5-94d4-5fbc64581b87"
+        "1ed09bbe-056f-45a0-a374-c5d1d019ec31"
       ]
     }
   },

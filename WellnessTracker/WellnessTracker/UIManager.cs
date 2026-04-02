@@ -14,7 +14,7 @@ namespace WellnessTracker
             AnsiConsole.Status()
                 .Start("Loading data...", ctx =>
                 {
-                    if (FileExporter.InitData())
+                    if (FileManager.InitData())
                     {
                         AnsiConsole.MarkupLine("[green]Data loaded successfully![/]");
                     } else
@@ -37,7 +37,7 @@ namespace WellnessTracker
 
                 if (confirmed)
                 {
-                    FileExporter.ExportReport($"report_{DateTime.Now.ToString("yyyyMMdd_hhmmtt")}.txt");
+                    FileManager.ExportReport($"report_{DateTime.Now.ToString()}.txt");
                 }
 
                 DataManager.UpdateGoalDeadline();
@@ -91,7 +91,7 @@ namespace WellnessTracker
                     case "Exit":
                         exit = true;
                         //Save data on exit
-                        FileExporter.ExportData(FileExporter.DefaultFilePath);
+                        FileManager.ExportData(FileManager.DefaultFilePath);
                         break;
                 }
 
@@ -334,11 +334,11 @@ namespace WellnessTracker
             switch (choice)
             {
                 case "Save Data":
-                    FileExporter.ExportData(FileExporter.DefaultFilePath);
+                    FileManager.ExportData(FileManager.DefaultFilePath);
                     AnsiConsole.MarkupLine("[green]Data saved successfully![/]");
                     break;
                 case "Load Data":
-                    FileExporter.ImportData(FileExporter.DefaultFilePath);
+                    FileManager.ImportData(FileManager.DefaultFilePath);
                     AnsiConsole.MarkupLine("[green]Data loaded successfully![/]");
                     break;
                 case "Clear Data":
@@ -355,8 +355,14 @@ namespace WellnessTracker
 
         public static void DisplayReportMenu()
         {
+            var selections = AnsiConsole.Prompt(
+                new MultiSelectionPrompt<string>()
+                    .Title("Select the goals to include in the report:")
+                    .UseConverter(id => DataManager.Goals[id].ToString())
+                    .AddChoices(DataManager.Goals.Keys));
+
             var filename = AnsiConsole.Ask<string>("Enter the filename for the report (without extension):");
-            FileExporter.ExportReport($"{filename}.txt");
+            FileManager.ExportReport($"{filename}.txt", selections);
         }
 
         public static void DisplaySummary()
