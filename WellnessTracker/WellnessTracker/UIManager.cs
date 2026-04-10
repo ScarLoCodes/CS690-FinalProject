@@ -8,13 +8,20 @@ namespace WellnessTracker
 {
     internal class UIManager
     {
-        public static void StartUp()
+        private readonly IDataManager _DataManager;
+        private readonly FileManager _FileManager;
+        public UIManager(IDataManager dataManager, FileManager fileManager)
+        {
+            _DataManager = dataManager;
+            _FileManager = fileManager;
+        }
+        public void StartUp()
         {
             AnsiConsole.MarkupLine("[blue]launching app...[/]");
             AnsiConsole.Status()
                 .Start("Loading data...", ctx =>
                 {
-                    if (FileManager.InitData())
+                    if (_FileManager.InitData())
                     {
                         AnsiConsole.MarkupLine("[green]Data loaded successfully![/]");
                     }
@@ -26,7 +33,7 @@ namespace WellnessTracker
                 });
 
             //Check if goals have completed their deadline and prompt the update process.
-            var NeedsUpdates = DataManager.CheckDeadlines();
+            var NeedsUpdates = _DataManager.CheckDeadlines();
             if (NeedsUpdates.Count > 0)
             {
                 AnsiConsole.MarkupLine("[red]The following goals have reached their deadline![/]");
@@ -38,14 +45,14 @@ namespace WellnessTracker
 
                 if (confirmed)
                 {
-                    FileManager.ExportReport($"report_{DateTime.Now.ToString()}.txt");
+                    _FileManager.ExportReport($"report_{DateTime.Now.Year.ToString()}_{DateTime.Now.Month.ToString()}_{DateTime.Now.Day.ToString()}_ExpiredGoals.txt");
                 }
 
-                DataManager.UpdateGoalDeadline();
+                _DataManager.UpdateGoalDeadline();
             }
         }
 
-        public static void DisplayMainMenu()
+        public void DisplayMainMenu()
         {
 
             AnsiConsole.MarkupLine("[bold green]Welcome to the Wellness Tracker![/]");
@@ -54,10 +61,10 @@ namespace WellnessTracker
             do
             {
                 DisplaySummary();
-                if (DataManager.Reminders.Count > 0)
+                if (_DataManager.Reminders.Count > 0)
                 {
                     AnsiConsole.MarkupLine("[bold red]Current Reminders:[/]");
-                    AnsiConsole.MarkupLine($"[gold1]{DataManager.PrintReminders()}[/]");
+                    AnsiConsole.MarkupLine($"[gold1]{_DataManager.PrintReminders()}[/]");
                 }
 
                 var choice = AnsiConsole.Prompt(
@@ -96,18 +103,18 @@ namespace WellnessTracker
                     case "Exit":
                         exit = true;
                         //Save data on exit
-                        FileManager.ExportData(FileManager.DefaultFilePath);
+                        _FileManager.ExportData(_FileManager.FilePath);
                         break;
                 }
 
             } while (!exit);
         }
 
-        public static void DisplayGoalMenu()
+        public void DisplayGoalMenu()
         {
 
             AnsiConsole.MarkupLine("[bold yellow]Goals:[/]");
-            Console.WriteLine(DataManager.PrintGoals());
+            Console.WriteLine(_DataManager.PrintGoals());
 
 
             var choice = AnsiConsole.Prompt(
@@ -137,7 +144,7 @@ namespace WellnessTracker
             }
         }
 
-        public static void AddGoal()
+        public void AddGoal()
         {
             var metricChoice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -182,40 +189,40 @@ namespace WellnessTracker
                 type = Goal.RecurringType.Weekly;
             }
 
-            DataManager.AddGoal(metric, goalValue, deadline, type);
+            _DataManager.AddGoal(metric, goalValue, deadline, type);
         }
 
-        public static void UpdateGoal()
+        public void UpdateGoal()
         {
             var goalSelection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Select a goal to update:")
-                    .UseConverter(id => DataManager.Goals[id].ToString())
-                    .AddChoices(DataManager.Goals.Keys));
+                    .UseConverter(id => _DataManager.Goals[id].ToString())
+                    .AddChoices(_DataManager.Goals.Keys));
 
             var goalValue = AnsiConsole.Ask<int>("Enter your new target value:");
 
             var deadline = AnsiConsole.Ask<DateTime>("Enter the new deadline for this goal (MM/DD/YYYY):");
 
-            DataManager.UpdateGoal(goalSelection, goalValue, deadline, false);
+            _DataManager.UpdateGoal(goalSelection, goalValue, deadline, false);
         }
 
-        public static bool DeleteGoal()
+        public bool DeleteGoal()
         {
             var goalSelection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Select a goal to delete:")
-                    .UseConverter(id => DataManager.Goals[id].ToString())
-                    .AddChoices(DataManager.Goals.Keys));
-            return DataManager.DeleteGoal(goalSelection);
+                    .UseConverter(id => _DataManager.Goals[id].ToString())
+                    .AddChoices(_DataManager.Goals.Keys));
+            return _DataManager.DeleteGoal(goalSelection);
         }
 
-        public static void PrintGoals()
+        public void PrintGoals()
         {
             AnsiConsole.MarkupLine("[bold yellow]Goals:[/]");
         }
 
-        public static void DisplayReminderMenu()
+        public void DisplayReminderMenu()
         {
 
             var choice = AnsiConsole.Prompt(
@@ -240,23 +247,23 @@ namespace WellnessTracker
             }
         }
 
-        public static void AddReminder()
+        public void AddReminder()
         {
             var name = AnsiConsole.Ask<string>("Enter the text of the reminder:");
-            DataManager.AddReminder(name);
+            _DataManager.AddReminder(name);
         }
 
-        public static bool DeleteReminder()
+        public bool DeleteReminder()
         {
             var reminderSelection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Select a reminder to delete:")
-                    .UseConverter(id => DataManager.Reminders[id].ToString())
-                    .AddChoices(DataManager.Reminders.Keys));
-            return DataManager.DeleteReminder(reminderSelection);
+                    .UseConverter(id => _DataManager.Reminders[id].ToString())
+                    .AddChoices(_DataManager.Reminders.Keys));
+            return _DataManager.DeleteReminder(reminderSelection);
         }
 
-        public static void DisplayActivityMenu()
+        public void DisplayActivityMenu()
         {
 
             //TO DO: Display Activities List (top 5)
@@ -283,10 +290,10 @@ namespace WellnessTracker
             }
         }
 
-        public static void AddActivity()
+        public void AddActivity()
         {
             //Check if there are goals. If not, prompt user to create a goal first.
-            if (DataManager.Goals.Count == 0)
+            if (_DataManager.Goals.Count == 0)
             {
                 AnsiConsole.MarkupLine("[red]No goals found. Please create a goal before logging an activity.[/]");
                 return;
@@ -295,23 +302,23 @@ namespace WellnessTracker
             var goalId = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Select a goal to associate with this activity:")
-                    .UseConverter(id => DataManager.Goals[id].ToString())
-                    .AddChoices(DataManager.Goals.Keys));
+                    .UseConverter(id => _DataManager.Goals[id].ToString())
+                    .AddChoices(_DataManager.Goals.Keys));
 
             var name = AnsiConsole.Ask<string>("Enter the name of the activity:");
 
-            Metric metric = DataManager.Goals[goalId].Metric;
+            Metric metric = _DataManager.Goals[goalId].Metric;
 
             var value = AnsiConsole.Ask<int>("Enter the value for this activity:");
-            var id = DataManager.AddActivity(name, value, metric);
-            DataManager.UpdateProgress(goalId, id);
+            var id = _DataManager.AddActivity(name, value, metric);
+            _DataManager.UpdateProgress(goalId, id);
 
         }
 
-        public static bool DeleteActivity()
+        public bool DeleteActivity()
         {
             //Check if there are goals. If not, prompt user to create a goal first.
-            if (DataManager.Goals.Count == 0)
+            if (_DataManager.Goals.Count == 0)
             {
                 AnsiConsole.MarkupLine("[red]No goals found. Please create a goal before deleting an activity.[/]");
                 return false;
@@ -320,12 +327,12 @@ namespace WellnessTracker
             var activitySelection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title("Select an activity to delete:")
-                    .UseConverter(id => DataManager.Activities[id].ToString())
-                    .AddChoices(DataManager.Activities.Keys));
-            return DataManager.DeleteActivity(activitySelection);
+                    .UseConverter(id => _DataManager.Activities[id].ToString())
+                    .AddChoices(_DataManager.Activities.Keys));
+            return _DataManager.DeleteActivity(activitySelection);
         }
 
-        public static void DisplayDataManagementMenu()
+        public void DisplayDataManagementMenu()
         {
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
@@ -340,17 +347,17 @@ namespace WellnessTracker
             switch (choice)
             {
                 case "Save Data":
-                    FileManager.ExportData(FileManager.DefaultFilePath);
+                    _FileManager.ExportData(_FileManager.FilePath);
                     AnsiConsole.MarkupLine("[green]Data saved successfully![/]");
                     break;
                 case "Load Data":
-                    FileManager.ImportData(FileManager.DefaultFilePath);
+                    _FileManager.ImportData(_FileManager.FilePath);
                     AnsiConsole.MarkupLine("[green]Data loaded successfully![/]");
                     break;
                 case "Clear Data":
                     if (AnsiConsole.Confirm("[red]Are you sure you want to delete all of your data?[/]"))
                     {
-                        DataManager.ClearData();
+                        _DataManager.ClearData();
                         AnsiConsole.MarkupLine("[green]Data cleared successfully![/]");
                     }
                     break;
@@ -359,44 +366,44 @@ namespace WellnessTracker
             }
         }
 
-        public static void DisplayReportMenu()
+        public void DisplayReportMenu()
         {
             var selections = AnsiConsole.Prompt(
                 new MultiSelectionPrompt<string>()
                     .Title("Select the goals to include in the report:")
-                    .UseConverter(id => DataManager.Goals[id].ToString())
-                    .AddChoices(DataManager.Goals.Keys));
+                    .UseConverter(id => _DataManager.Goals[id].ToString())
+                    .AddChoices(_DataManager.Goals.Keys));
 
             var filename = AnsiConsole.Ask<string>("Enter the filename for the report (without extension):");
-            FileManager.ExportReport($"{filename}.txt", selections);
+            _FileManager.ExportReport($"{filename}.txt", selections);
         }
 
-        public static void DisplaySummary()
+        public void DisplaySummary()
         {
             AnsiConsole.MarkupLine("[blue]Summary[/]");
-            foreach (var goal in DataManager.Goals.Values)
+            foreach (var goal in _DataManager.Goals.Values)
             {
                 AnsiConsole.MarkupLine($" - {goal.ToString()}");
             }
             AnsiConsole.MarkupLine("[blue]Latest Activities:[/]");
-            var activities = DataManager.Activities.Values.OrderBy(item => item.Time).Take(5);
+            var activities = _DataManager.Activities.Values.OrderBy(item => item.Time).Take(5);
             foreach (var item in activities)
             {
                 AnsiConsole.MarkupLine($" - {item.ToString()}");
             }
         }
 
-        public static void DisplayProgress()
+        public void DisplayProgress()
         {
             AnsiConsole.MarkupLine("[LightGreen]Progress[/]");
-            foreach (var goal in DataManager.Goals.Values)
+            foreach (var goal in _DataManager.Goals.Values)
             {
                 AnsiConsole.MarkupLine($"   {goal.ToString()}");
                 if (goal.ActivityIDs.Count > 0)
                 {
                     foreach (var activityId in goal.ActivityIDs)
                     {
-                        var activity = DataManager.Activities[activityId];
+                        var activity = _DataManager.Activities[activityId];
                         AnsiConsole.MarkupLine($"    - {activity.ToString()}");
                     }
                 }

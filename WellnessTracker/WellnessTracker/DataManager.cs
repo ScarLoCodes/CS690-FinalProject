@@ -4,21 +4,20 @@ using System.Text;
 
 namespace WellnessTracker
 {
-    public class DataManager
+    public class DataManager : IDataManager
     {
-        public static Dictionary<string, Activity> Activities { get; set; } = new Dictionary<string, Activity>();
-        public static Dictionary<string, Goal> Goals { get; set; } = new Dictionary<string, Goal>();
+        public Dictionary<string, Activity> Activities { get; set; } = new Dictionary<string, Activity>();
+        public Dictionary<string, Goal> Goals { get; set; } = new Dictionary<string, Goal>();
+        public Dictionary<string, string> Reminders { get; set; } = new Dictionary<string, string>();
 
-        public static Dictionary<string, string> Reminders { get; set; } = new Dictionary<string, string>();
-
-        public static string AddActivity(string name, int value, Metric metric)
+        public string AddActivity(string name, int value, Metric metric)
         {
             Activity entry = new Activity(name, value, metric); 
             Activities.Add(entry.ID, entry);
             return entry.ID;
         }
 
-        public static bool DeleteActivity(string id)
+        public bool DeleteActivity(string id)
         {
             var query =
                 from goal in Goals
@@ -34,7 +33,7 @@ namespace WellnessTracker
                 return Activities.Remove(id);
         }
 
-        public static void UpdateProgress(string goalId, string activityId)
+        public void UpdateProgress(string goalId, string activityId)
         {
             var goal = Goals.ContainsKey(goalId) ? Goals[goalId] : null;
             var activity = Activities.ContainsKey(activityId) ? Activities[activityId] : null;
@@ -45,13 +44,13 @@ namespace WellnessTracker
             }
         }
 
-        public static void AddGoal(Metric metric, int goalValue, DateTime deadline, Goal.RecurringType type)
+        public void AddGoal(Metric metric, int goalValue, DateTime deadline, Goal.RecurringType type)
         {
             Goal goal = new Goal(metric, goalValue, deadline, type);
             Goals.Add(goal.ID, goal);
         }
     
-        public static bool DeleteGoal(string id)
+        public bool DeleteGoal(string id)
         {
             var goal = Goals.ContainsKey(id) ? Goals[id] : null;
             if (goal != null)
@@ -70,7 +69,7 @@ namespace WellnessTracker
             return false;
         }
 
-        public static void UpdateGoal(string id, int goalValue, DateTime deadline, bool ClearActivities)
+        public void UpdateGoal(string id, int goalValue, DateTime deadline, bool ClearActivities)
         {
             var goal = Goals.ContainsKey(id) ? Goals[id] : null;
             if (goal != null)
@@ -80,7 +79,7 @@ namespace WellnessTracker
             }
         }
 
-        public static void UpdateGoalDeadline()
+        public void UpdateGoalDeadline()
         {
 
             //Remove expired non-recurring goals
@@ -109,7 +108,7 @@ namespace WellnessTracker
             }
         }
 
-        public static List<Goal> CheckDeadlines()
+        public List<Goal> CheckDeadlines()
         {
             List<Goal> list = new List<Goal>();
             foreach (var goal in Goals)
@@ -122,24 +121,24 @@ namespace WellnessTracker
             return list;
         }
 
-        public static void AddReminder(string message)
+        public void AddReminder(string message)
         {
             Reminders.Add(Guid.NewGuid().ToString(), message);
         }
 
-        public static bool DeleteReminder(string id)
+        public bool DeleteReminder(string id)
         {
             return Reminders.Remove(id);
         }
 
-        public static void ClearData()
+        public void ClearData()
         {
             Activities.Clear();
             Goals.Clear();
             Reminders.Clear();
         }
 
-        public static string PrintGoals()
+        public string PrintGoals()
         {
             StringBuilder sb = new StringBuilder();
             foreach (var goal in Goals)
@@ -149,7 +148,7 @@ namespace WellnessTracker
             return sb.ToString();
         }
 
-        public static string PrintReminders()
+        public string PrintReminders()
         {
             StringBuilder sb = new StringBuilder();
             foreach (var reminder in Reminders)
@@ -159,7 +158,7 @@ namespace WellnessTracker
             return sb.ToString();
         }
 
-        public static string PrintActivities()
+        public string PrintActivities()
         {
             StringBuilder sb = new StringBuilder();
             foreach (var activity in Activities)

@@ -17,3 +17,5 @@ C:\Users\danny\source\repos\ScarLoCodes\CS690-FinalProject\WellnessTracker\Welln
 C:\Users\danny\source\repos\ScarLoCodes\CS690-FinalProject\WellnessTracker\WellnessTracker\obj\Release\net10.0\WellnessTracker.pdb
 C:\Users\danny\source\repos\ScarLoCodes\CS690-FinalProject\WellnessTracker\WellnessTracker\obj\Release\net10.0\WellnessTracker.genruntimeconfig.cache
 C:\Users\danny\source\repos\ScarLoCodes\CS690-FinalProject\WellnessTracker\WellnessTracker\obj\Release\net10.0\ref\WellnessTracker.dll
+C:\Users\danny\source\repos\ScarLoCodes\CS690-FinalProject\WellnessTracker\WellnessTracker\bin\Release\net10.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\danny\source\repos\ScarLoCodes\CS690-FinalProject\WellnessTracker\WellnessTracker\bin\Release\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll

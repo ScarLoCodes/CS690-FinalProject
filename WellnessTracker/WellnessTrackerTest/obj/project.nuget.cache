@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "xMnK5DI2vR0=",
+  "dgSpecHash": "GdhfcvRK3kM=",
   "success": true,
   "projectFilePath": "C:\\Users\\danny\\source\\repos\\ScarLoCodes\\CS690-FinalProject\\WellnessTracker\\WellnessTrackerTest\\WellnessTrackerTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.applicationinsights\\2.23.0\\microsoft.applicationinsights.2.23.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.codecoverage\\18.0.0\\microsoft.codecoverage.18.0.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.diasymreader\\2.0.0\\microsoft.diasymreader.2.0.0.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.5\\microsoft.extensions.dependencyinjection.10.0.5.nupkg.sha512",
+    "C:\\Users\\danny\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.5\\microsoft.extensions.dependencyinjection.abstractions.10.0.5.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.extensions.dependencymodel\\6.0.2\\microsoft.extensions.dependencymodel.6.0.2.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.net.test.sdk\\18.0.0\\microsoft.net.test.sdk.18.0.0.nupkg.sha512",
     "C:\\Users\\danny\\.nuget\\packages\\microsoft.testing.extensions.codecoverage\\18.1.0\\microsoft.testing.extensions.codecoverage.18.1.0.nupkg.sha512",
