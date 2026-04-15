@@ -1,31 +1,58 @@
 {
   "Activities": {
-    "a044e5bd-97da-4b0d-a5f3-bbc6fad3521d": {
-      "ID": "a044e5bd-97da-4b0d-a5f3-bbc6fad3521d",
-      "Name": "Lunch",
-      "Metric": {
-        "Type": 0
-      },
-      "Value": 350,
-      "Time": "2026-04-02T14:14:05.697116-04:00"
-    },
-    "1ed09bbe-056f-45a0-a374-c5d1d019ec31": {
-      "ID": "1ed09bbe-056f-45a0-a374-c5d1d019ec31",
-      "Name": "Morning Walk",
-      "Metric": {
-        "Type": 1
-      },
-      "Value": 35,
-      "Time": "2026-04-02T14:14:26.3356006-04:00"
-    },
-    "769806d9-aea9-4801-ba82-f971a75ff3d8": {
-      "ID": "769806d9-aea9-4801-ba82-f971a75ff3d8",
+    "3aa69a84-e96b-4a28-a5dc-8a22b60e1fb3": {
+      "ID": "3aa69a84-e96b-4a28-a5dc-8a22b60e1fb3",
       "Name": "Snack",
       "Metric": {
         "Type": 0
       },
-      "Value": 250,
-      "Time": "2026-04-02T14:14:35.9954405-04:00"
+      "Value": 600,
+      "Time": "2026-04-14T19:36:49.1971491-04:00"
+    },
+    "49c86d98-3f1f-4402-ac49-88e06d68f354": {
+      "ID": "49c86d98-3f1f-4402-ac49-88e06d68f354",
+      "Name": "Walking",
+      "Metric": {
+        "Type": 1
+      },
+      "Value": 30,
+      "Time": "2026-04-14T19:36:58.635486-04:00"
+    },
+    "ace9b6bb-e44f-413a-92f4-4cfeb5022415": {
+      "ID": "ace9b6bb-e44f-413a-92f4-4cfeb5022415",
+      "Name": "Stretches",
+      "Metric": {
+        "Type": 1
+      },
+      "Value": 15,
+      "Time": "2026-04-14T19:37:13.2132263-04:00"
+    },
+    "0f356333-cbce-4dd5-85e8-7232314e7e82": {
+      "ID": "0f356333-cbce-4dd5-85e8-7232314e7e82",
+      "Name": "Cookies",
+      "Metric": {
+        "Type": 0
+      },
+      "Value": 150,
+      "Time": "2026-04-14T19:37:39.3597328-04:00"
+    },
+    "c573f8ab-adcd-42f2-a64e-fc9755d7d5e5": {
+      "ID": "c573f8ab-adcd-42f2-a64e-fc9755d7d5e5",
+      "Name": "Juice",
+      "Metric": {
+        "Type": 0
+      },
+      "Value": 165,
+      "Time": "2026-04-14T19:37:49.604295-04:00"
+    },
+    "534daa28-a2f8-4cc7-8478-3a0985d4e1f4": {
+      "ID": "534daa28-a2f8-4cc7-8478-3a0985d4e1f4",
+      "Name": "Chicken Wings",
+      "Metric": {
+        "Type": 0
+      },
+      "Value": 350,
+      "Time": "2026-04-14T19:38:08.9151008-04:00"
     }
   },
   "Goals": {
@@ -36,26 +63,31 @@
       },
       "Recurring": 1,
       "GoalValue": 1600,
-      "CurrentValue": 600,
-      "Deadline": "2026-04-03T00:00:00-04:00",
+      "CurrentValue": 1265,
+      "Deadline": "2026-04-15T00:00:00-04:00",
       "ActivityIDs": [
-        "a044e5bd-97da-4b0d-a5f3-bbc6fad3521d",
-        "769806d9-aea9-4801-ba82-f971a75ff3d8"
+        "3aa69a84-e96b-4a28-a5dc-8a22b60e1fb3",
+        "0f356333-cbce-4dd5-85e8-7232314e7e82",
+        "c573f8ab-adcd-42f2-a64e-fc9755d7d5e5",
+        "534daa28-a2f8-4cc7-8478-3a0985d4e1f4"
       ]
     },
-    "779ee5f1-8f69-4170-8daa-43b9f88edf11": {
-      "ID": "779ee5f1-8f69-4170-8daa-43b9f88edf11",
+    "d9cf6f56-92a4-4130-b24f-970a6f77add0": {
+      "ID": "d9cf6f56-92a4-4130-b24f-970a6f77add0",
       "Metric": {
         "Type": 1
       },
       "Recurring": 1,
-      "GoalValue": 300,
-      "CurrentValue": 35,
-      "Deadline": "2026-04-03T00:00:00-04:00",
+      "GoalValue": 60,
+      "CurrentValue": 45,
+      "Deadline": "2026-04-15T00:00:00-04:00",
       "ActivityIDs": [
-        "1ed09bbe-056f-45a0-a374-c5d1d019ec31"
+        "49c86d98-3f1f-4402-ac49-88e06d68f354",
+        "ace9b6bb-e44f-413a-92f4-4cfeb5022415"
       ]
     }
   },
-  "Reminders": {}
+  "Reminders": {
+    "d87b37ee-1ba1-4c75-a863-0ce4f8f5450e": "Remember to log Jogging"
+  }
 }

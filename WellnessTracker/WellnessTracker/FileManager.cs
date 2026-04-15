@@ -90,29 +90,36 @@ namespace WellnessTracker
         /// </summary>
         /// <remarks>Does not assign a file type. This must be dictated in the filename.</remarks>
         /// <param name="filename"></param>
-        public void ExportReport(string filename)
+        public bool ExportReport(string filename)
         {
-            StringBuilder report = new StringBuilder();
-            report.AppendLine("Wellness Tracker Report");
-            report.AppendLine($"Date: {DateTime.Now.ToString()}");
-            report.AppendLine("======================");
-            foreach(var item in _DataManager.Goals.Values)
+            try
             {
-                report.AppendLine(item.ToString());
-                if (item.ActivityIDs.Count > 0)
+                StringBuilder report = new StringBuilder();
+                report.AppendLine("Wellness Tracker Report");
+                report.AppendLine($"Date: {DateTime.Now.ToString()}");
+                report.AppendLine("======================");
+                foreach (var item in _DataManager.Goals.Values)
                 {
-                    foreach (var id in item.ActivityIDs)
+                    report.AppendLine(item.ToString());
+                    if (item.ActivityIDs.Count > 0)
                     {
-                        var activity = _DataManager.Activities.ContainsKey(id) ? _DataManager.Activities[id] : null;
-                        if (activity != null)
+                        foreach (var id in item.ActivityIDs)
                         {
-                            report.AppendLine($" -- {activity.ToString()}");
+                            var activity = _DataManager.Activities.ContainsKey(id) ? _DataManager.Activities[id] : null;
+                            if (activity != null)
+                            {
+                                report.AppendLine($" -- {activity.ToString()}");
+                            }
                         }
                     }
                 }
-            }
 
-            File.WriteAllText(filename, report.ToString());
+                File.WriteAllText(filename, report.ToString());
+                return true;
+            } catch (Exception ex) 
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -120,35 +127,44 @@ namespace WellnessTracker
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="Goals"></param>
-        public void ExportReport(string filename, List<string> GoalIDs)
+        public bool ExportReport(string filename, List<string> GoalIDs)
         {
-            //fetch Goals
-            var Goals =
-                from goal in _DataManager.Goals
-                where GoalIDs.Contains(goal.Key)
-                select goal.Value;
-
-            StringBuilder report = new StringBuilder();
-            report.AppendLine("Wellness Tracker Report");
-            report.AppendLine($"Date: {DateTime.Now.ToString()}");
-            report.AppendLine("======================");
-            foreach (var item in Goals)
+            try
             {
-                report.AppendLine(item.ToString());
-                if (item.ActivityIDs.Count > 0)
+                //fetch Goals
+                var Goals =
+                    from goal in _DataManager.Goals
+                    where GoalIDs.Contains(goal.Key)
+                    select goal.Value;
+
+                StringBuilder report = new StringBuilder();
+                report.AppendLine("Wellness Tracker Report");
+                report.AppendLine($"Date: {DateTime.Now.ToString()}");
+                report.AppendLine("======================");
+                foreach (var item in Goals)
                 {
-                    foreach (var id in item.ActivityIDs)
+                    report.AppendLine(item.ToString());
+                    if (item.ActivityIDs.Count > 0)
                     {
-                        var activity = _DataManager.Activities.ContainsKey(id) ? _DataManager.Activities[id] : null;
-                        if (activity != null)
+                        foreach (var id in item.ActivityIDs)
                         {
-                            report.AppendLine($" -- {activity.ToString()}");
+                            var activity = _DataManager.Activities.ContainsKey(id) ? _DataManager.Activities[id] : null;
+                            if (activity != null)
+                            {
+                                report.AppendLine($" -- {activity.ToString()}");
+                            }
                         }
                     }
                 }
-            }
 
-            File.WriteAllText(filename, report.ToString());
+                File.WriteAllText(filename, report.ToString());
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

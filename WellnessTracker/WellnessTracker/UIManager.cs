@@ -60,11 +60,10 @@ namespace WellnessTracker
             bool exit = false;
             do
             {
-                DisplaySummary();
+                DisplayShortSummary();
                 if (_DataManager.Reminders.Count > 0)
                 {
-                    AnsiConsole.MarkupLine("[bold red]Current Reminders:[/]");
-                    AnsiConsole.MarkupLine($"[gold1]{_DataManager.PrintReminders()}[/]");
+                    AnsiConsole.Write(DisplayReminders(_DataManager.Reminders.Values.ToArray()));
                 }
 
                 var choice = AnsiConsole.Prompt(
@@ -83,22 +82,36 @@ namespace WellnessTracker
                 switch (choice)
                 {
                     case "Manage Goals":
+                        AnsiConsole.Clear();
                         DisplayGoalMenu();
+                        AnsiConsole.Clear();
                         break;
                     case "Log Activity":
+                        AnsiConsole.Clear();
                         DisplayActivityMenu();
+                        AnsiConsole.Clear();
                         break;
                     case "Manage Reminders":
+                        AnsiConsole.Clear();
                         DisplayReminderMenu();
+                        AnsiConsole.Clear();
                         break;
                     case "View All Progress":
-                        DisplayProgress();
+                        AnsiConsole.Clear();
+                        DisplayFullSummary();
+                        AnsiConsole.MarkupLine("Press any key to return to the main menu...");
+                        Console.ReadKey();
+                        AnsiConsole.Clear();
                         break;
                     case "Print Report":
+                        AnsiConsole.Clear();
                         DisplayReportMenu();
+                        AnsiConsole.Clear();
                         break;
                     case "Manage Data":
+                        AnsiConsole.Clear();
                         DisplayDataManagementMenu();
+                        AnsiConsole.Clear();
                         break;
                     case "Exit":
                         exit = true;
@@ -375,39 +388,132 @@ namespace WellnessTracker
                     .AddChoices(_DataManager.Goals.Keys));
 
             var filename = AnsiConsole.Ask<string>("Enter the filename for the report (without extension):");
-            _FileManager.ExportReport($"{filename}.txt", selections);
+            if (filename == null || filename == string.Empty)
+            {
+                filename = $"report_{DateTime.Now.Year.ToString()}_{DateTime.Now.Month.ToString()}_{DateTime.Now.Day.ToString()}.txt";
+            }
+
+            var success = _FileManager.ExportReport($"{filename}.txt", selections);
+            if (success)
+            {
+                AnsiConsole.MarkupLine($"[green]Report exported successfully as {filename}.txt[/]");
+
+            }
+            else
+            {
+                AnsiConsole.MarkupLine("[red]Failed to export report. Please try again.[/]");
+            }
+            AnsiConsole.MarkupLine("Press any key to return to the main menu...");
+            Console.ReadKey();
         }
 
-        public void DisplaySummary()
+        public void DisplayShortSummary()
         {
-            AnsiConsole.MarkupLine("[blue]Summary[/]");
-            foreach (var goal in _DataManager.Goals.Values)
-            {
-                AnsiConsole.MarkupLine($" - {goal.ToString()}");
-            }
-            AnsiConsole.MarkupLine("[blue]Latest Activities:[/]");
-            var activities = _DataManager.Activities.Values.OrderBy(item => item.Time).Take(5);
-            foreach (var item in activities)
-            {
-                AnsiConsole.MarkupLine($" - {item.ToString()}");
-            }
+
+            //AnsiConsole.MarkupLine("[blue]Summary[/]");
+            var Goals = DisplayGoals(_DataManager.Goals.Values.ToArray());
+
+            //AnsiConsole.MarkupLine("[blue]Latest Activities:[/]");
+            var QueryResults = _DataManager.Activities.Values.OrderByDescending(item => item.Time).Take(5);
+            var Activities = DisplayActivities(QueryResults.ToArray());
+
+            AnsiConsole.Write(Goals);
+            AnsiConsole.Write(Activities);  
+
         }
 
-        public void DisplayProgress()
+        public void DisplayFullSummary()
         {
-            AnsiConsole.MarkupLine("[LightGreen]Progress[/]");
+            var tree = new Spectre.Console.Tree("Full Summary");
+
             foreach (var goal in _DataManager.Goals.Values)
             {
-                AnsiConsole.MarkupLine($"   {goal.ToString()}");
+                var goalNode = tree.AddNode($"[blue]{goal.ToString()}[/]");
                 if (goal.ActivityIDs.Count > 0)
                 {
                     foreach (var activityId in goal.ActivityIDs)
                     {
                         var activity = _DataManager.Activities[activityId];
-                        AnsiConsole.MarkupLine($"    - {activity.ToString()}");
+                        goalNode.AddNode(activity.ToString());
                     }
                 }
             }
+            
+            AnsiConsole.Write(GetPanel(tree, ""));
         }
+
+        public Spectre.Console.Panel DisplayGoals(Goal[] goals)
+        {
+            var chart = new Spectre.Console.BarChart()
+                .WithMaxValue(100);
+            foreach (Goal goal in goals)
+            {
+                var progress = (double)goal.CurrentValue / goal.GoalValue * 100;
+                var color = ConsoleColor.White;
+                if (progress > 100)
+                {
+                    color = ConsoleColor.Green;
+                }
+                else if (progress > 75)
+                {
+                    color = ConsoleColor.Cyan;
+                }
+                else if (progress > 50)
+                {
+                    color = ConsoleColor.Blue;
+                }
+                else if (progress > 25)
+                {
+                    color = ConsoleColor.Yellow;
+                }
+                else
+                {
+                    color = ConsoleColor.Red;
+                }
+                chart.AddItem(goal.ToString(), progress, color);
+            }
+            var panel = GetPanel(chart, "Goals Progress");
+
+            return panel;
+        }
+
+        public Spectre.Console.Panel DisplayActivities(Activity[] activities)
+        {
+            var Table = new Spectre.Console.Table()
+                .AddColumn("Date")
+                .AddColumn("Name")
+                .AddColumn("Metric");
+
+            foreach (Activity activity in activities)
+            {
+                Table.AddRow(activity.Time.ToString(), activity.Name, $"{activity.Value} {activity.Metric.ToString()}");
+            }
+            return GetPanel(Table, "Activities").Expand();
+        }
+
+        public Spectre.Console.Panel DisplayReminders(string[] reminders)
+        {
+            var output = "";
+            foreach (string reminder in reminders)
+            {
+                output += $"- {reminder}\n";
+            }
+            var text = new Spectre.Console.Text(output, new Style(foreground: Color.Yellow));
+            return GetPanel(text, "Reminders").Expand();
+        }
+
+        public Spectre.Console.Panel GetPanel(Spectre.Console.Rendering.IRenderable content, string header)
+        {
+            var panel = new Spectre.Console.Panel(content)
+                .Padding(2, 1)
+                .RoundedBorder();
+            if (!string.IsNullOrEmpty(header))
+            {
+                panel.Header(header, Justify.Left);
+            }
+            return panel;
+        }
+
+        
     }
 }
