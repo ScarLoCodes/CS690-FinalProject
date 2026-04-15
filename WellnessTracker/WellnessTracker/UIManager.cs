@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Text;
 using Spectre.Console;
 
@@ -444,51 +445,67 @@ namespace WellnessTracker
 
         public Spectre.Console.Panel DisplayGoals(Goal[] goals)
         {
-            var chart = new Spectre.Console.BarChart()
-                .WithMaxValue(100);
-            foreach (Goal goal in goals)
+            if (goals.Length != 0)
             {
-                var progress = (double)goal.CurrentValue / goal.GoalValue * 100;
-                var color = ConsoleColor.White;
-                if (progress > 100)
+                var chart = new Spectre.Console.BarChart()
+                    .WithMaxValue(100);
+                foreach (Goal goal in goals)
                 {
-                    color = ConsoleColor.Green;
+                    var progress = (double)goal.CurrentValue / goal.GoalValue * 100;
+                    var color = ConsoleColor.White;
+                    if (progress > 100)
+                    {
+                        color = ConsoleColor.Green;
+                    }
+                    else if (progress > 75)
+                    {
+                        color = ConsoleColor.Cyan;
+                    }
+                    else if (progress > 50)
+                    {
+                        color = ConsoleColor.Blue;
+                    }
+                    else if (progress > 25)
+                    {
+                        color = ConsoleColor.Yellow;
+                    }
+                    else
+                    {
+                        color = ConsoleColor.Red;
+                    }
+                    chart.AddItem(goal.ToString(), progress, color);
                 }
-                else if (progress > 75)
-                {
-                    color = ConsoleColor.Cyan;
-                }
-                else if (progress > 50)
-                {
-                    color = ConsoleColor.Blue;
-                }
-                else if (progress > 25)
-                {
-                    color = ConsoleColor.Yellow;
-                }
-                else
-                {
-                    color = ConsoleColor.Red;
-                }
-                chart.AddItem(goal.ToString(), progress, color);
-            }
-            var panel = GetPanel(chart, "Goals Progress");
 
-            return panel;
+                var panel = GetPanel(chart, "Goals Progress");
+
+                return panel;
+            }
+            else
+            {
+                return GetPanel(new Spectre.Console.Text("No goals found.", new Style(foreground: Color.Yellow)), "Goals Progress").Expand();
+            }
         }
 
         public Spectre.Console.Panel DisplayActivities(Activity[] activities)
         {
-            var Table = new Spectre.Console.Table()
-                .AddColumn("Date")
-                .AddColumn("Name")
-                .AddColumn("Metric");
-
-            foreach (Activity activity in activities)
+            if (activities.Length != 0)
             {
-                Table.AddRow(activity.Time.ToString(), activity.Name, $"{activity.Value} {activity.Metric.ToString()}");
+                var Table = new Spectre.Console.Table()
+                    .AddColumn("Date")
+                    .AddColumn("Name")
+                    .AddColumn("Metric");
+
+                foreach (Activity activity in activities)
+                {
+                    Table.AddRow(activity.Time.ToString(), activity.Name, $"{activity.Value} {activity.Metric.ToString()}");
+                }
+                return GetPanel(Table, "Activities").Expand();
             }
-            return GetPanel(Table, "Activities").Expand();
+            else
+            {
+                return GetPanel(new Spectre.Console.Text("No activities found.", new Style(foreground: Color.Yellow)), "Activities").Expand();
+            }
+        
         }
 
         public Spectre.Console.Panel DisplayReminders(string[] reminders)
