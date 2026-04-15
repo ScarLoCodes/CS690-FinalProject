@@ -126,10 +126,7 @@ namespace WellnessTracker
 
         public void DisplayGoalMenu()
         {
-
-            AnsiConsole.MarkupLine("[bold yellow]Goals:[/]");
-            Console.WriteLine(_DataManager.PrintGoals());
-
+            AnsiConsole.Write(DisplayGoals(_DataManager.Goals.Values.ToArray()));
 
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
